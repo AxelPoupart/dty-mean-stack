@@ -1,0 +1,28 @@
+<div>
+    <br>
+    <mat-card>
+      <section class ="mat-typography">
+        <h3>Connection</h3>
+      </section>
+      <mat-divider></mat-divider>
+      <br>
+
+        <mat-form-field class="field-full-width">
+            <input matInput #name
+                   type="text"
+                   placeholder="Name">
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width">
+                <input matInput #password
+                       type="text"
+                       placeholder="Password">
+        </mat-form-field>
+
+              <mat-divider></mat-divider>
+              <br><br>
+              <button mat-raised-button color="accent" routerLink="/home">Back</button>&nbsp;
+              <button mat-raised-button color="primary" (click)="connectionSuccess(name.value, password.value)">Connect</button>
+
+    </mat-card>
+  </div>

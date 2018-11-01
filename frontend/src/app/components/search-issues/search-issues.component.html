@@ -1,0 +1,14 @@
+<div id="search-component">
+  <h4>Find an issue</h4>
+  <span>
+    Title :
+    <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  </span>
+  <ul class="search-result">
+    <li *ngFor="let issue of issues$ | async" >
+      <a routerLink="/edit/{{issue._id}}">
+        {{issue.title}}
+      </a>
+    </li>
+  </ul>
+</div>

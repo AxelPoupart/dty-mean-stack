@@ -1,0 +1,40 @@
+<div>
+  <br>
+  <mat-card>
+    <section class ="mat-typography">
+      <h3>Update User</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="updateForm" class="edit-form">
+
+      <mat-form-field class="field-full-width">
+          <input matInput formControlName="name" #name
+                 type="text"
+                 required
+                 placeholder="User Name">
+      </mat-form-field>
+
+      <mat-form-field class="field-full-width">
+                <textarea matInput formControlName="manager" #manager
+                       type="text"
+                       required
+                       placeholder="Manager"></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="field-full-width">
+        <mat-select formControlName="status" placeholder="Status" #status required>
+          <mat-option value="Admin">Admin</mat-option>
+          <mat-option value="Manager">Manager</mat-option>
+          <mat-option value="User">User</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+            <mat-divider></mat-divider>
+            <br><br>
+            <button mat-raised-button color="accent" routerLink="/list-user">Back</button>&nbsp;
+            <button mat-raised-button color="primary" type="submit" (click)="updateUser(name.value, manager.value, status.value)" [disabled]="updateForm.pristine || updateForm.invalid">Save</button>
+
+    </form>
+  </mat-card>
+</div>

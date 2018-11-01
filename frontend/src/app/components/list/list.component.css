@@ -1,0 +1,12 @@
+table {
+  width: 100%;
+}
+
+.mat-column-right {
+  text-align: center;
+}
+
+.example-spacer {
+  text-align: center;
+  flex: 1 1 auto;
+}

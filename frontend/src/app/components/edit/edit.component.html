@@ -1,0 +1,72 @@
+<div>
+    <mat-card>
+
+<!-- File input for the file-upload plugin, with special ng2-file-upload directive called ng2FileSelect -->
+<input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+<!-- button to trigger the file upload when submitted -->
+<button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+      Upload with ng-2 file uploader
+</button>
+
+<!-- File input for upload without using the plugin. -->
+<input id="photo" type="file" />
+<!-- button to trigger the file upload when submitted -->
+<button type="button" class="btn btn-success btn-s" (click)="this.upload()">
+Upload with method 2
+</button>
+
+    </mat-card>
+
+
+
+
+
+
+
+
+  <br>
+  <mat-card>
+    <section class ="mat-typography">
+      <h3>Update Issue</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="updateForm" class="edit-form">
+
+      <mat-form-field class="field-full-width">
+          <input matInput formControlName="title" #title
+                 type="text"
+                 required
+                 placeholder="Issue Title">
+      </mat-form-field>
+
+      <mat-form-field class="field-full-width">
+                <textarea matInput formControlName="description" #description
+                       type="text"
+                       required
+                       placeholder="Description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field class="field-full-width">
+        <mat-select formControlName="severity" placeholder="Severity" #severity required>
+          <mat-option value="Low">Low</mat-option>
+          <mat-option value="Medium">Medium</mat-option>
+          <mat-option value="High">High</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="field-full-width">
+        <mat-select formControlName="status" placeholder="Status" #status>
+          <mat-option value="Open">Open</mat-option>
+          <mat-option value="In Progress">In Progress</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+            <mat-divider></mat-divider>
+            <br><br>
+            <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+            <button mat-raised-button color="primary" type="submit" (click)="updateIssue(title.value, description.value, severity.value, status.value)" [disabled]="updateForm.pristine || updateForm.invalid">Save</button>
+
+    </form>
+  </mat-card>
+</div>
