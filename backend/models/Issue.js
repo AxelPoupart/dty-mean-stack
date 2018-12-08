@@ -22,4 +22,6 @@ let Issue = new Schema({
 
 });
 
+
+
 export default mongoose.model('Issue', Issue);
